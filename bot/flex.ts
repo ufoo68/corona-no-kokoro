@@ -32,7 +32,7 @@ export const commute: Types.FlexBubble = {
         action: {
           type: "message",
           label: "はい",
-          text: "はい"
+          text: "commute:yes"
         }
       },
       {
@@ -42,7 +42,7 @@ export const commute: Types.FlexBubble = {
         action: {
           type: "message",
           label: "いいえ",
-          text: "いいえ"
+          text: "commute:no"
         }
       },
       {

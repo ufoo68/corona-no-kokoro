@@ -2,7 +2,7 @@ import * as Lambda from 'aws-lambda'
 import * as Line from '@line/bot-sdk'
 import * as Types from '@line/bot-sdk/lib/types'
 import { commute } from './flex'
-// import { buildReplyText } from 'line-message-builder'
+import { buildReplyText } from 'line-message-builder'
 
 const channelAccessToken = process.env.ACCESS_TOKEN!
 const channelSecret = process.env.CHANNEL_SECRET!
@@ -12,12 +12,16 @@ const config: Line.ClientConfig = {
     channelSecret,
 }
 const client = new Line.Client(config)
+const contents: Types.FlexBubble[] = [commute]
 
 async function eventHandler(event: Types.MessageEvent): Promise<any> {
     if (event.type !== 'message' || event.message.type !== 'text' || !event.source.userId) {
         return null
     }
-    return client.replyMessage(event.replyToken, { type: 'flex', altText: 'test', contents: commute})
+    if(event.message.text === '質問') {
+        return client.replyMessage(event.replyToken, { type: 'flex', altText: 'research', contents: contents[ Math.floor( Math.random() * contents.length )]})
+    }
+    return client.replyMessage(event.replyToken, buildReplyText('回答ありがとうございます。'))
 }
 
 export const handler: Lambda.APIGatewayProxyHandler = async (proxyEevent: Lambda.APIGatewayEvent, _context) => {

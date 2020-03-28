@@ -6,8 +6,8 @@ export class CoronaNoKokoroStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props)
 
-    const table = new dynamodb.Table(this, 'Table', {
-      partitionKey: { name: 'userId', type: dynamodb.AttributeType.STRING }
+    const commuteTable = new dynamodb.Table(this, 'Table', {
+      partitionKey: { name: 'commute', type: dynamodb.AttributeType.STRING }
     })
 
     const lambdaApi = new LambdaApi(this, 'LineBot', {
@@ -15,10 +15,10 @@ export class CoronaNoKokoroStack extends cdk.Stack {
       environment: {
         ACCESS_TOKEN: process.env.ACCESS_TOKEN!,
         CHANNEL_SECRET: process.env.CHANNEL_SECRET!,
-        TABLE_NAME: table.tableName,
+        COMMUTE_TABLE_NAME: commuteTable.tableName,
       }
     })
 
-    table.grantFullAccess(lambdaApi.handler)
+    commuteTable.grantFullAccess(lambdaApi.handler)
   }
 }
