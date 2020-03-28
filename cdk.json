@@ -1,3 +1,7 @@
 {
-  "app": "node -r dotenv/config -r ts-node/register bin/corona-no-kokoro.ts"
+  "app": "node -r dotenv/config -r ts-node/register bin/corona-no-kokoro.ts",
+  "context": {
+    "@aws-cdk/core:enableStackNameDuplicates": "true",
+    "aws-cdk:enableDiffNoFail": "true"
+  }
 }
