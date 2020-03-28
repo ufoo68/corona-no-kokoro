@@ -1,6 +1,8 @@
 # このレポジトリについて
 
-[LINEのハッカソン](https://ldgk.connpass.com/event/171176/)のためにつくりました。
+[LINEのハッカソン](https://ldgk.connpass.com/event/171176/)のためにつくりました。以下のQRから友達登録お願いします。
+
+![img](./assets/image.png)
 
 ## Useful commands
 
