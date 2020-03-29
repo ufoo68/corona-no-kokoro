@@ -23,28 +23,51 @@ async function eventHandler(event: Types.PostbackEvent): Promise<any> {
         case ResultType.bookYes:
         case ResultType.bookNo:
             await addResult(event.postback.data)
-            return client.replyMessage(event.replyToken, {
-                type: 'flex',
-                altText: 'research',
-                contents: result('本を読むようになった', await getResult(ResultType.bookYes), await getResult(ResultType.bookNo))
-            })
+            return client.replyMessage(event.replyToken, [
+                {
+                    type: 'flex',
+                    altText: 'research',
+                    contents: result('本を読むようになった', await getResult(ResultType.bookYes), await getResult(ResultType.bookNo))
+                },
+                buildReplyText('図書館は残念ながら閉まっていますが、本屋さんは空いています。'),
+                {
+                    type: 'image',
+                    originalContentUrl: 'https://www.pakutaso.com/shared/img/thumb/Photoelly060_TP_V.jpg',
+                    previewImageUrl: 'https://www.pakutaso.com/shared/img/thumb/Photoelly060_TP_V.jpg',
+                }
+            ])
         case ResultType.commuteYes:
         case ResultType.commuteNo:
             await addResult(event.postback.data)
-            return client.replyMessage(event.replyToken, {
-                type: 'flex',
-                altText: 'research',
-                contents: result('出社する予定である', await getResult(ResultType.commuteYes), await getResult(ResultType.commuteNo))
-            })
+            return client.replyMessage(event.replyToken, [
+                {
+                    type: 'flex',
+                    altText: 'research',
+                    contents: result('出社する予定である', await getResult(ResultType.commuteYes), await getResult(ResultType.commuteNo))
+                },
+                buildReplyText('人ごみは避けて、一駅歩いてみませんか？'),
+                buildReplyText('歩くことで感染を避けるだけでなく、不安やストレスの解消も期待できるそうですよ。'),
+                {
+                    type: 'image',
+                    originalContentUrl: 'https://www.pakutaso.com/shared/img/thumb/TSURU814006_TP_V4.jpg',
+                    previewImageUrl: 'https://www.pakutaso.com/shared/img/thumb/TSURU814006_TP_V4.jpg',
+                }
+            ])
         case ResultType.windowYes:
         case ResultType.windowNo:
             await addResult(event.postback.data)
             return client.replyMessage(event.replyToken, [
-                buildReplyText('窓をあけることは新型コロナウィルスの感染を防ぐための簡単で有効な方法です。まだ肌寒い日もありますが、こまめに窓をあけましょう。'),
                 {
                     type: 'flex',
                     altText: 'research',
                     contents: result('窓を開けた', await getResult(ResultType.windowYes), await getResult(ResultType.windowNo))
+                },
+                buildReplyText('５～１０分のあいだ窓をあけることで、効率的にウィルスを排出することができます。'),
+                buildReplyText('まだ肌寒い日もありますが、こまめに窓をあけましょう。'),
+                {
+                    type: 'image',
+                    originalContentUrl: 'https://www.pakutaso.com/shared/img/thumb/gunma-IMG_7939_TP_V.jpg',
+                    previewImageUrl: 'https://www.pakutaso.com/shared/img/thumb/gunma-IMG_7939_TP_V.jpg',
                 }
             ])
         default:

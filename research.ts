@@ -17,7 +17,7 @@ export const research = (title: string, img: string, data: string): Types.FlexBu
         type: 'text',
         text: title,
         weight: 'bold',
-        size: 'xl'
+        size: 'md'
       }
     ]
   },
