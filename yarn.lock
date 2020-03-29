@@ -885,7 +885,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@line/bot-sdk@^6.8.2", "@line/bot-sdk@^6.8.4":
+"@line/bot-sdk@6.8.4", "@line/bot-sdk@^6.8.2":
   version "6.8.4"
   resolved "https://registry.yarnpkg.com/@line/bot-sdk/-/bot-sdk-6.8.4.tgz#9262ff5989d48edba35c851f7401a6e26d83c32d"
   integrity sha512-ul0GT9CHW2A5K3xUi6BRuFSWZfePXcnArFFeDtf4wbLhVMZoO3yyslrEaDuNt4UiKYK1BxU09LvXNU7/ha4i9w==
@@ -2959,7 +2959,7 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-line-message-builder@^1.1.1:
+line-message-builder@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/line-message-builder/-/line-message-builder-1.1.1.tgz#b168c0874cf3261cc1b7ed52337d92feb609159c"
   integrity sha512-oOiJpUtMh3i5d79B+iJGJ66OMrddvsRULImR+yqVzi27sTTTwLvQMJ5pmuPuj0M6D9YO0S4BTi66KQq0GSCBIw==
