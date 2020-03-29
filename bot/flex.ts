@@ -1,55 +1,24 @@
 import * as Types from '@line/bot-sdk/lib/types'
-export const commute: Types.FlexBubble = {
-  type: "bubble",
-  hero: {
-    type: "image",
-    url: "https://3.bp.blogspot.com/-TRUxVT2290k/WI1zUd8sq0I/AAAAAAABBX0/6USLXDjtWxAtKQLxJr-InNGM2s_N5sjugCLcB/s800/train_manin_business.png",
-    size: "full",
-    aspectRatio: "20:13",
-    aspectMode: "cover",
-  },
+
+export const result = (title: string, yes: string, no: string): Types.FlexBubble => ({
+  type: 'bubble',
   body: {
-    type: "box",
-    layout: "vertical",
+    type: 'box',
+    layout: 'vertical',
     contents: [
       {
-        type: "text",
-        text: "今週は出社予定ですか？",
-        weight: "bold",
-        size: "xl"
+        type: 'text',
+        text: title,
+        size: 'lg'
+      },
+      {
+        type: 'text',
+        text: `はい：${yes}人`
+      },
+      {
+        type: 'text',
+        text: `いいえ：${no}人`
       }
     ]
-  },
-  footer: {
-    type: "box",
-    layout: "vertical",
-    spacing: "sm",
-    contents: [
-      {
-        type: "button",
-        style: "primary",
-        height: "sm",
-        action: {
-          type: "message",
-          label: "はい",
-          text: "commute:yes"
-        }
-      },
-      {
-        type: "button",
-        style: "secondary",
-        height: "sm",
-        action: {
-          type: "message",
-          label: "いいえ",
-          text: "commute:no"
-        }
-      },
-      {
-        type: "spacer",
-        size: "sm"
-      }
-    ],
-    flex: 0
   }
-}
+})
