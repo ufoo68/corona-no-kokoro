@@ -27,6 +27,6 @@
     "cdk-lambda-api": "0.1.4",
     "dotenv": "8.2.0",
     "line-message-builder": "^1.1.1",
-    "source-map-support": "0.5.16"
+    "source-map-support": "0.5.19"
   }
 }
